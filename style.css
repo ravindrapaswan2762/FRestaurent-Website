@@ -1,0 +1,250 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+      font-family: "Times New Roman", Times, serif;
+/*    overflow-x: hidden;*/
+/*    background-color: cyan;*/
+/*    overflow-y: hidden;*/
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+/*NavBar section----------------*/
+.header{
+    padding: 0 4.8rem; //vertically, horizontally
+    height: 10rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #e7f5ff;
+}
+.logo-box{
+    height: 3rem;
+    margin: 2rem;
+    background-color: black;
+    color: white;
+    padding: 0.3rem 1rem;
+}
+.logo{
+    text-align: center;
+    letter-spacing: 0.3rem;
+}
+.nav-list{
+    display: flex;
+    gap: 4.8rem;
+    list-style: none;
+}
+.nav-link:link, .nav-link:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #212529;
+    transition: all 0.3s;
+}
+.nav-link:hover, .nav-link:active{
+    color: #364fc7;
+}
+
+.mobile-navbar-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+}
+.mobile-navbar-icon{
+    height: 3.6rem;
+    width: 3.6rem;
+    color: #212529;
+}
+.mobile-navbar-icon[name="close-outline"]{
+    display: none;
+}
+
+/*Hero image section----------------*/
+.hero-image {
+      background-image: url("heroImage.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 500px; /* Adjust the height as needed */
+}
+.intro-text {
+      text-align: justify;
+      margin: 50px;
+      font-size: 20px;
+      line-height: 1.5;
+}
+.intro-text h1{
+    margin: auto !important;
+
+}
+
+
+/*=================================================== For Responsive*/
+/*1em = 16px then 62em = 62*16 = 992px*/
+/*Desktop first approach*/
+
+@media(max-width: 62em){
+    .mobile-navbar-btn{
+        display: block;
+        z-index: 999;
+        border: 2px solid #212529;
+        color: #212529;
+        padding: 1px;
+    }
+    .header{
+        position: relative;
+    }
+    .navbar{
+/*       display: none;*/
+        
+        width: 100%;
+        height: 100vh;
+        background: #e7f5ff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+       /*for transition*/
+       transform: translateX(100%);
+       transition: all 0.5s linear;
+
+       opacity: 0;
+       visibility: hidden;
+       pointer-events: none;
+
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* if 'active' class present in header then*/
+    .active .navbar {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .active .mobile-navbar-btn .mobile-navbar-icon[name="close-outline"]{
+        display: block;
+    }
+    .active .mobile-navbar-btn .mobile-navbar-icon[name="menu-outline"]{
+        display: none ;
+    }
+     
+}
+
+@media (max-width: 35em){
+    .header{
+        padding: 0 2.4rem;
+    }
+    .header .logo{
+        width: 60%;
+    }
+}
+
+/*=========================================================== for menu page*/
+.col-md-3{
+    margin: 30px !important;
+}
+p{
+    font-weight: bold;
+    font-size: 20px;
+}
+#footer{
+    height: 89px;
+    width: 100%;
+    background-color: #e7f5ff;
+    color: gray;
+    line-height: 17px;
+    text-align: center;
+}
+.pf1{
+     padding-top: 26px;
+}
+/*========================================================== for about page*/
+.about-section {
+    text-align: center;
+    text-align: justify;
+    margin: 7rem;
+}
+    
+.about-section h2 {
+  font-size: 28px;
+}
+    
+.about-section p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.team-section {
+  margin: 7rem;
+}
+
+.team-section h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.team-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/*---------------------------------- for contact page*/
+#contact-us{
+    text-align: center;
+}
+#contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 7rem;
+  margin-top: 5rem;
+}
+
+#contactForm label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#contactForm button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#contactForm button:hover {
+  background-color: #555;
+}
+
+.error {
+    color: red;
+}
